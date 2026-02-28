@@ -101,6 +101,17 @@ html, body, #app {
   border-right: none;
 }
 
+/* 未选中时 icon 强制白色 */
+.side-menu .el-menu-item i,
+.side-menu .el-submenu__title i {
+  color: rgb(255, 255, 255,0.6) !important;
+}
+
+/* 选中时 icon 跟着变黄 */
+.side-menu .el-menu-item.is-active i {
+  color: #ffd04b !important;
+}
+
 .header {
   background-color: #fff;
   display: flex;

@@ -20,7 +20,7 @@
 
             <!-- 左侧侧边栏 -->
             <el-menu
-            :default-active="$route.path"
+            :default-active="activeMenu"
             router
             :collapse="isCollapsed"
             :collapse-transition="false"
@@ -32,12 +32,29 @@
                 <i class="el-icon-s-home"></i>
                 <transition name="logo-fade"><span v-if="!isCollapsed">首页</span></transition>
             </el-menu-item>
-            <el-submenu index="/about">
+            <el-submenu index="sub-about">
                 <template slot="title">
                 <i class="el-icon-s-order"></i>
                 <transition name="logo-fade"><span v-if="!isCollapsed">导航一</span></transition>
                 </template>
-                <el-menu-item index="/about">关于</el-menu-item>
+                <el-menu-item index="/one">
+                    <i class="el-icon-info"></i>
+                    导航1-1
+                </el-menu-item>
+                <el-menu-item index="/about">
+                    <i class="el-icon-info"></i>
+                    关于
+                </el-menu-item>
+            </el-submenu>
+            <el-submenu index="sub-settings">
+                <template slot="title">
+                <i class="el-icon-s-order"></i>
+                <transition name="logo-fade"><span v-if="!isCollapsed">导航er</span></transition>
+                </template>
+                <el-menu-item index="two">
+                    <i class="el-icon-info"></i>
+                    导航2-1
+                </el-menu-item>
             </el-submenu>
             <el-menu-item index="/settings">
                 <i class="el-icon-setting"></i>
@@ -53,11 +70,11 @@
         <!-- 右侧区域 -->
         <el-container style="flex-direction: column;">
             <el-header class="header">
-            <span>系统标题</span>
-            <div class="header-right">
-                <i class="el-icon-bell"></i>
-                <span>管理员</span>
-            </div>
+                <span>系统标题</span>
+                <div class="header-right">
+                    <i class="el-icon-bell"></i>
+                    <span>管理员</span>
+                </div>
             </el-header>
 
             <el-main class="main">
@@ -84,7 +101,22 @@ export default {
       collapseWidth: 80,   // 折叠后宽度
       normalWidth: 250,    // 展开宽度
       collapseTrigger: 100, // 拖到这个宽度以下自动折叠
+      activeMenu: '',   // 初始为空，避免 el-submenu 自动展开
       newWidth: 0,
+    }
+  },
+
+  mounted() {
+    // 组件初始化完成后再设置高亮，此时 el-submenu 的展开逻辑已跑完，不会再触发
+    this.$nextTick(() => {
+      this.activeMenu = this.$route.path
+    })
+  },
+
+  watch: {
+    // 路由切换时同步更新高亮
+    '$route'(to) {
+      this.activeMenu = to.path
     }
   },
 
