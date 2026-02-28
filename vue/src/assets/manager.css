@@ -1,0 +1,140 @@
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.aside {
+  background-color: #4f6395;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  transition: width 0.3s ease;
+}
+
+.aside.no-transition {
+  transition: none !important;
+}
+
+/* logo 文字淡出：快速消失 */
+.logo-fade-leave-active {
+  transition: opacity 0.12s ease;
+}
+/* logo 文字淡入：稍作延迟，等宽度先展开 */
+.logo-fade-enter-active {
+  transition: opacity 0.2s ease;
+  transition-delay: 0.18s;
+}
+.logo-fade-enter,
+.logo-fade-leave-to {
+  opacity: 0;
+}
+
+/* 拖拽把手 */
+.resize-handle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  cursor: col-resize;
+  background-color: transparent;
+  z-index: 999;
+}
+
+/* 悬停时显示把手颜色提示 */
+.resize-handle:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.logo {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.collapse-btn {
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.collapse-btn:hover {
+  color: #ffd04b;
+}
+
+/* 覆盖 ElementUI 折叠时隐藏 span 的样式，让 v-if + transition 接管 */
+.el-menu--collapse .el-menu-item span,
+.el-menu--collapse .el-submenu__title span {
+  display: inline-block !important;
+  visibility: visible !important;
+  height: auto !important;
+  width: auto !important;
+  overflow: visible !important;
+}
+
+.side-menu {
+  border-right: none;
+}
+
+.header {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.main {
+  background-color: #f0f2f5;
+}
+
+.stat-card {
+  text-align: center;
+}
+
+.stat-title {
+  color: #999;
+  font-size: 14px;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 8px;
+}
+
+.side-menu .el-menu-item.is-active {
+  background-color: rgba(255,255,255,0.15) !important;
+}
