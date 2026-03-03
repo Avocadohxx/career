@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0">
+  <diagram id="2cle9fsl-ZEeQsDK5Ys0" name="Page-1">
+    <mxGraphModel dx="2733" dy="1008" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="login" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=20;verticalAlign=middle;" value="用户登录" vertex="1">
+          <mxGeometry height="50" width="140" x="1130" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="m_admin" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=20;verticalAlign=middle;" value="管理员模块" vertex="1">
+          <mxGeometry height="50" width="160" x="800" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="m_counsel" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=20;verticalAlign=middle;" value="辅导员模块" vertex="1">
+          <mxGeometry height="50" width="160" x="1010" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="m_student" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=20;verticalAlign=middle;" value="学生模块" vertex="1">
+          <mxGeometry height="50" width="160" x="1220" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="m_company" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=20;verticalAlign=middle;" value="企业模块" vertex="1">
+          <mxGeometry height="50" width="160" x="1430" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="e_l_a" edge="1" parent="1" source="login" style="edgeStyle=orthogonalEdgeStyle;endArrow=none;endFill=0;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1200" y="1200" />
+              <mxPoint x="880" y="1200" />
+            </Array>
+            <mxPoint x="880" y="1280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_l_c" edge="1" parent="1" source="login" style="edgeStyle=orthogonalEdgeStyle;endArrow=none;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" target="m_counsel">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1200" y="1200" />
+              <mxPoint x="1090" y="1200" />
+            </Array>
+            <mxPoint x="1090.0000000000005" y="1400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_l_s" edge="1" parent="1" source="login" style="edgeStyle=orthogonalEdgeStyle;endArrow=none;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=20;" target="m_student">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1200" y="1200" />
+              <mxPoint x="1300" y="1200" />
+            </Array>
+            <mxPoint x="1300" y="1290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_l_co" edge="1" parent="1" source="login" style="edgeStyle=orthogonalEdgeStyle;endArrow=none;endFill=0;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1200" y="1200" />
+              <mxPoint x="1510" y="1200" />
+            </Array>
+            <mxPoint x="1510" y="1280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9AzxFui9R-MGTKWOe-Xn-2" edge="1" parent="1" source="9AzxFui9R-MGTKWOe-Xn-1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="login">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9AzxFui9R-MGTKWOe-Xn-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=20;verticalAlign=middle;" value="就业指导系统功能模块" vertex="1">
+          <mxGeometry height="50" width="290" x="1055" y="980" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
