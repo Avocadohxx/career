@@ -6,6 +6,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/Login.vue')
+  },
+  {
     path: '/',
     component: ManagerLayout,
     children: [
@@ -22,6 +27,14 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, _from, next) => {
+  if (to.path === '/') {
+    next('/login')
+  } else {
+    next()
+  }
 })
 
 export default router
