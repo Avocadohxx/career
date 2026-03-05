@@ -32,7 +32,7 @@ public class DataInitializer implements CommandLineRunner {
             admin.setEmail("admin@career.com");
             admin.setCreateAt(LocalDateTime.now());
             adminService.save(admin);
-            System.out.println("✅ 默认管理员已创建：账号 admin / 密码 admin123");
+            System.out.println("默认管理员已创建：账号 admin / 密码 admin123");
         }
     }
 }
