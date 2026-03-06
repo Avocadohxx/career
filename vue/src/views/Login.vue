@@ -55,6 +55,7 @@ async function handleLogin() {
       localStorage.setItem('role', data.data.role)
       localStorage.setItem('realName', data.data.realName || '')
       localStorage.setItem('userName', data.data.userName || '')
+      localStorage.setItem('userId', data.data.userId || '')
       ElMessage.success('登录成功')
       router.push('/')
     } else {

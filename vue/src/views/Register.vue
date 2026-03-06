@@ -48,6 +48,14 @@
           <el-form-item>
             <el-input v-model="regForm.major" placeholder="所学专业（选填）" :prefix-icon="Reading" />
           </el-form-item>
+          <el-form-item>
+            <el-select v-model="regForm.counselorId" placeholder="选择指导老师（选填）" style="width: 100%;" clearable>
+              <el-option
+                v-for="c in counselorOptions" :key="c.id"
+                :label="c.realName + (c.department ? ' · ' + c.department : '')"
+                :value="c.id" />
+            </el-select>
+          </el-form-item>
         </template>
 
         <!-- 辅导员特有字段 -->
@@ -78,7 +86,7 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { User, Lock, Avatar, Message, Phone, School, OfficeBuilding, Reading, Briefcase } from '@element-plus/icons-vue'
@@ -86,6 +94,7 @@ import { User, Lock, Avatar, Message, Phone, School, OfficeBuilding, Reading, Br
 const router = useRouter()
 const loading = ref(false)
 const formRef = ref(null)
+const counselorOptions = ref([])
 
 const regForm = reactive({
   role: '',
@@ -97,8 +106,17 @@ const regForm = reactive({
   school: '',
   department: '',
   major: '',
+  counselorId: null,
   companyName: '',
   industry: ''
+})
+
+onMounted(async () => {
+  try {
+    const res = await fetch('http://localhost:9090/api/counselor/all')
+    const json = await res.json()
+    if (json.code === 200) counselorOptions.value = json.data || []
+  } catch { /* ignore */ }
 })
 
 const rules = {

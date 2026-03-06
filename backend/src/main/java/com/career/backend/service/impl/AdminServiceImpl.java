@@ -52,6 +52,6 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
             throw new RuntimeException("密码错误");
         }
         String token = jwtUtil.generateToken(admin.getUserName(), "admin");
-        return new LoginResponse(token, "admin", admin.getRealName(), admin.getUserName());
+        return new LoginResponse(token, "admin", admin.getRealName(), admin.getUserName(), admin.getId());
     }
 }

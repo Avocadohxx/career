@@ -40,28 +40,28 @@ public class AuthServiceImpl implements AuthService {
                 .eq(Admin::getUserName, username));
         if (admin != null && passwordEncoder.matches(rawPassword, admin.getPassword())) {
             return new LoginResponse(jwtUtil.generateToken(username, "admin"), "admin",
-                    admin.getRealName(), admin.getUserName());
+                    admin.getRealName(), admin.getUserName(), admin.getId());
         }
 
         Student student = studentService.getOne(new LambdaQueryWrapper<Student>()
                 .eq(Student::getUserName, username));
         if (student != null && passwordEncoder.matches(rawPassword, student.getPassword())) {
             return new LoginResponse(jwtUtil.generateToken(username, "student"), "student",
-                    student.getRealName(), student.getUserName());
+                    student.getRealName(), student.getUserName(), student.getId());
         }
 
         Counselor counselor = counselorService.getOne(new LambdaQueryWrapper<Counselor>()
                 .eq(Counselor::getUserName, username));
         if (counselor != null && passwordEncoder.matches(rawPassword, counselor.getPassword())) {
             return new LoginResponse(jwtUtil.generateToken(username, "counselor"), "counselor",
-                    counselor.getRealName(), counselor.getUserName());
+                    counselor.getRealName(), counselor.getUserName(), counselor.getId());
         }
 
         Company company = companyService.getOne(new LambdaQueryWrapper<Company>()
                 .eq(Company::getUserName, username));
         if (company != null && passwordEncoder.matches(rawPassword, company.getPassword())) {
             return new LoginResponse(jwtUtil.generateToken(username, "company"), "company",
-                    company.getCompanyName(), company.getUserName());
+                    company.getCompanyName(), company.getUserName(), company.getId());
         }
 
         throw new RuntimeException("账号或密码错误");

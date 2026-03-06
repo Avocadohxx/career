@@ -6,6 +6,7 @@ import com.career.backend.common.Result;
 import com.career.backend.entity.Counselor;
 import com.career.backend.service.CounselorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -17,6 +18,9 @@ public class CounselorController {
 
     @Autowired
     private CounselorService counselorService;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @GetMapping("/list")
     public Result<?> list(
@@ -49,6 +53,9 @@ public class CounselorController {
 
     @PostMapping("/add")
     public Result<Void> add(@RequestBody Counselor counselor) {
+        if (counselor.getPassword() != null && !counselor.getPassword().isBlank()) {
+            counselor.setPassword(passwordEncoder.encode(counselor.getPassword()));
+        }
         counselor.setCreateAt(LocalDateTime.now());
         counselor.setUpdatedAt(LocalDateTime.now());
         counselorService.save(counselor);

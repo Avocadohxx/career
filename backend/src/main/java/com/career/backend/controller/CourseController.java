@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/course")
@@ -21,6 +22,8 @@ public class CourseController {
     private CourseService courseService;
     @Autowired
     private CourseEnrollmentService enrollmentService;
+    @Autowired
+    private com.career.backend.service.StudentService studentService;
 
     @GetMapping("/list")
     public Result<?> list(
@@ -86,9 +89,26 @@ public class CourseController {
     }
 
     @GetMapping("/enrolled-students/{courseId}")
-    public Result<List<CourseEnrollment>> enrolledStudents(@PathVariable Integer courseId) {
-        return Result.success(enrollmentService.list(
-                new LambdaQueryWrapper<CourseEnrollment>().eq(CourseEnrollment::getCourseId, courseId)));
+    public Result<List<Map<String, Object>>> enrolledStudents(@PathVariable Integer courseId) {
+        List<CourseEnrollment> enrollments = enrollmentService.list(
+                new LambdaQueryWrapper<CourseEnrollment>()
+                        .eq(CourseEnrollment::getCourseId, courseId)
+                        .orderByAsc(CourseEnrollment::getEnrollTime));
+        List<Map<String, Object>> result = new java.util.ArrayList<>();
+        for (CourseEnrollment e : enrollments) {
+            Map<String, Object> item = new java.util.LinkedHashMap<>();
+            item.put("studentId", e.getStudentId());
+            item.put("enrollTime", e.getEnrollTime());
+            com.career.backend.entity.Student s = studentService.getById(e.getStudentId());
+            if (s != null) {
+                item.put("realName", s.getRealName());
+                item.put("major", s.getMajor());
+                item.put("department", s.getDepartment());
+                item.put("phone", s.getPhone());
+            }
+            result.add(item);
+        }
+        return Result.success(result);
     }
 
     @GetMapping("/my-enrollments")

@@ -29,13 +29,13 @@
       :total="total" :page-size="pageSize" v-model:current-page="page"
       @current-change="loadList" />
 
-    <el-dialog v-model="dialogVisible" :title="dialogTitle" width="600px" @closed="resetForm">
+    <el-dialog v-model="dialogVisible" :title="dialogTitle" width="60vw" @closed="resetForm">
       <el-form :model="form" :rules="rules" ref="formRef" label-width="70px">
         <el-form-item label="标题" prop="title">
           <el-input v-model="form.title" placeholder="帖子标题" />
         </el-form-item>
         <el-form-item label="内容" prop="content">
-          <el-input v-model="form.content" type="textarea" :rows="8" placeholder="帖子内容..." />
+          <el-input v-model="form.content" type="textarea" :rows="14" placeholder="帖子内容..." />
         </el-form-item>
       </el-form>
       <template #footer>

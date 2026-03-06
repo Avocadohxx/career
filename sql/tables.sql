@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `application` (
     `student_id`     INT NOT NULL,
     `job_id`         INT NOT NULL,
     `company_id`     INT NOT NULL,
-    `status`         TINYINT  DEFAULT 0 COMMENT '0待查看 1已查看 2面试邀请 3已录用 4已拒绝',
+    `status`         TINYINT  DEFAULT 0 COMMENT '0待查看 1已查看 2已邀请 3已录用 4已拒绝 5待面试（学生已确认） 6面试不通过',
     `interview_time` DATETIME DEFAULT NULL COMMENT '面试时间',
     `apply_time`     DATETIME DEFAULT NULL COMMENT '投递时间',
     `updated_at`     DATETIME DEFAULT NULL,
