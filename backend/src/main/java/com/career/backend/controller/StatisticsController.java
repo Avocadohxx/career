@@ -213,12 +213,16 @@ public class StatisticsController {
                     .in(Job::getId, jobIds).select(Job::getId, Job::getTitle))
                     .forEach(j -> jobTitles.put(j.getId(), j.getTitle()));
 
+        Company company = companyService.getById(companyId);
+        String companyName = company != null ? company.getCompanyName() : "";
+
         List<Map<String, Object>> enriched = new ArrayList<>();
         for (Application app : recentApps) {
             Map<String, Object> item = new LinkedHashMap<>();
             item.put("id", app.getId());
             item.put("studentId", app.getStudentId());
             item.put("studentName", studentNames.getOrDefault(app.getStudentId(), ""));
+            item.put("companyName", companyName);
             item.put("jobId", app.getJobId());
             item.put("jobTitle", jobTitles.getOrDefault(app.getJobId(), ""));
             item.put("status", app.getStatus());

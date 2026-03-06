@@ -42,6 +42,7 @@
       <template #header><span style="font-weight:600;">最新投递记录</span></template>
       <el-table :data="recentApps" v-loading="loading" stripe>
         <el-table-column prop="studentName" label="学生" width="100" />
+        <el-table-column prop="companyName" label="企业名称" width="130" />
         <el-table-column prop="jobTitle" label="应聘岗位" min-width="150" />
         <el-table-column prop="applyTime" label="投递时间" width="160">
           <template #default="{ row }">{{ fmt(row.applyTime) }}</template>
