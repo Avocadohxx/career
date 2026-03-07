@@ -2,6 +2,7 @@ package com.career.backend.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -18,6 +19,8 @@ public class Counselor {
     private String department;
     private String phone;
     private String email;
+    @TableLogic
+    private Integer isDel;
     private LocalDateTime createAt;
     private LocalDateTime updatedAt;
 }

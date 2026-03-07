@@ -3,7 +3,9 @@ package com.career.backend.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.career.backend.common.Result;
+import com.career.backend.entity.Resume;
 import com.career.backend.entity.Student;
+import com.career.backend.service.ResumeService;
 import com.career.backend.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,6 +23,8 @@ public class StudentController {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    private ResumeService resumeService;
 
     @GetMapping("/list")
     public Result<?> list(
@@ -45,7 +49,10 @@ public class StudentController {
     @GetMapping("/all")
     public Result<List<Student>> all() {
         LambdaQueryWrapper<Student> wrapper = new LambdaQueryWrapper<>();
-        wrapper.select(Student::getId, Student::getRealName, Student::getUserName, Student::getDepartment, Student::getMajor);
+        wrapper.select(Student::getId, Student::getRealName, Student::getUserName,
+                Student::getSchool, Student::getDepartment, Student::getMajor,
+                Student::getJobIntention, Student::getCityIntention,
+                Student::getPhone, Student::getEmail, Student::getCounselorId);
         return Result.success(studentService.list(wrapper));
     }
 
@@ -71,6 +78,15 @@ public class StudentController {
     public Result<Void> update(@RequestBody Student student) {
         student.setUpdatedAt(LocalDateTime.now());
         studentService.updateById(student);
+        // 同步求职意向、意向城市到 resume 表
+        Resume resume = resumeService.getOne(new LambdaQueryWrapper<Resume>()
+                .eq(Resume::getStudentId, student.getId()));
+        if (resume != null) {
+            resume.setJobIntention(student.getJobIntention());
+            resume.setCityIntention(student.getCityIntention());
+            resume.setUpdatedAt(LocalDateTime.now());
+            resumeService.updateById(resume);
+        }
         return Result.success(null);
     }
 

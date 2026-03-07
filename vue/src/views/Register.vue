@@ -4,7 +4,7 @@
       <div class="login-header">
         <img src="@/assets/logo.png" class="login-logo" />
         <h2 class="login-title">注册账号</h2>
-        <p class="login-sub">就业指导系统</p>
+        <p class="login-sub">大学生就业服务管理平台</p>
       </div>
 
       <el-form ref="formRef" :model="regForm" :rules="rules" label-width="0" class="login-form">

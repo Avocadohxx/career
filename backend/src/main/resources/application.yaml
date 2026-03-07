@@ -14,3 +14,8 @@ mybatis-plus:
 
 server:
   port: 9090
+
+doubao:
+  api-key: your-api-key-here
+  model: doubao-1-5-pro-256k-250115
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/chat/completions

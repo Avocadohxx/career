@@ -61,6 +61,59 @@ public class StatisticsController {
                                 Company::getStatus, Company::getCreateAt)
                         .orderByDesc(Company::getCreateAt)
                         .last("LIMIT 5")));
+
+        // 就业统计：饼图、条形图、学生列表（与辅导员相同逻辑，但范围是全部学生）
+        List<Student> allStudents = studentService.list(
+                new LambdaQueryWrapper<Student>()
+                        .select(Student::getId, Student::getRealName, Student::getMajor,
+                                Student::getDepartment, Student::getJobIntention));
+        List<Integer> allSids = allStudents.stream().map(Student::getId).toList();
+
+        List<Application> allApps = allSids.isEmpty() ? new ArrayList<>() :
+                applicationService.list(new LambdaQueryWrapper<Application>()
+                        .in(Application::getStudentId, allSids));
+        Map<Integer, List<Application>> appsByStudent = allApps.stream()
+                .collect(Collectors.groupingBy(Application::getStudentId));
+
+        Set<Integer> companyIds = allApps.stream()
+                .map(Application::getCompanyId).filter(Objects::nonNull).collect(Collectors.toSet());
+        Map<Integer, String> companyNameMap = new HashMap<>();
+        if (!companyIds.isEmpty()) {
+            companyService.list(new LambdaQueryWrapper<Company>()
+                    .in(Company::getId, companyIds)
+                    .select(Company::getId, Company::getCompanyName))
+                    .forEach(c -> companyNameMap.put(c.getId(), c.getCompanyName()));
+        }
+
+        long employed = allStudents.stream().filter(s ->
+                appsByStudent.getOrDefault(s.getId(), List.of())
+                        .stream().anyMatch(a -> Integer.valueOf(3).equals(a.getStatus()))).count();
+        data.put("appStatusCounts", List.of(
+                Map.of("name", "已录用", "value", employed),
+                Map.of("name", "未录用", "value", allStudents.size() - employed)));
+
+        data.put("totalApps", (long) allApps.size());
+        data.put("monthlyStats", allSids.isEmpty() ? buildEmptyMonthly() : buildMonthlyStats(allSids));
+
+        List<Map<String, Object>> studentList = new ArrayList<>();
+        for (Student s : allStudents) {
+            Map<String, Object> item = new LinkedHashMap<>();
+            item.put("studentId", s.getId());
+            item.put("realName", s.getRealName());
+            List<Application> sApps = appsByStudent.getOrDefault(s.getId(), List.of());
+            item.put("totalApps", sApps.size());
+            item.put("interviewList", sApps.stream()
+                    .filter(a -> Integer.valueOf(2).equals(a.getStatus()))
+                    .map(a -> companyNameMap.getOrDefault(a.getCompanyId(), "未知公司"))
+                    .collect(Collectors.toList()));
+            item.put("offerList", sApps.stream()
+                    .filter(a -> Integer.valueOf(3).equals(a.getStatus()))
+                    .map(a -> companyNameMap.getOrDefault(a.getCompanyId(), "未知公司"))
+                    .collect(Collectors.toList()));
+            studentList.add(item);
+        }
+        data.put("studentList", studentList);
+
         return Result.success(data);
     }
 

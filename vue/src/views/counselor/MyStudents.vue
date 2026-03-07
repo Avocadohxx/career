@@ -15,6 +15,7 @@
     <el-card shadow="never" style="border-radius: 8px;">
       <el-table :data="list" v-loading="loading" stripe>
         <el-table-column prop="id" label="ID" width="60" />
+        <el-table-column prop="userName" label="用户名" width="100" />
         <el-table-column prop="realName" label="姓名" width="100" />
         <el-table-column prop="userName" label="账号" width="120" />
         <el-table-column prop="department" label="院系" />

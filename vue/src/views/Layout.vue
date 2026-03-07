@@ -91,10 +91,11 @@
             <el-icon><Document /></el-icon>
             <template #title>我的简历</template>
           </el-menu-item>
-          <el-menu-item index="/student/recommend">
-            <el-icon><Star /></el-icon>
-            <template #title>岗位推荐</template>
-          </el-menu-item>
+          <el-sub-menu index="sub-recommend">
+            <template #title><el-icon><Star /></el-icon><span>岗位推荐</span></template>
+            <el-menu-item index="/student/recommend/smart"><el-icon><Star /></el-icon>智能推荐</el-menu-item>
+            <el-menu-item index="/student/recommend/ai"><el-icon><MagicStick /></el-icon>AI 推荐</el-menu-item>
+          </el-sub-menu>
           <el-menu-item index="/student/search">
             <el-icon><Search /></el-icon>
             <template #title>岗位搜索</template>
@@ -128,10 +129,11 @@
             <template #title><el-icon><Briefcase /></el-icon><span>岗位管理</span></template>
             <el-menu-item index="/company/jobs"><el-icon><Document /></el-icon>我发布的岗位</el-menu-item>
           </el-sub-menu>
-          <el-menu-item index="/company/talent">
-            <el-icon><UserFilled /></el-icon>
-            <template #title>求职者推荐</template>
-          </el-menu-item>
+          <el-sub-menu index="sub-talent">
+            <template #title><el-icon><UserFilled /></el-icon><span>求职者推荐</span></template>
+            <el-menu-item index="/company/talent/smart"><el-icon><UserFilled /></el-icon>智能推荐</el-menu-item>
+            <el-menu-item index="/company/talent/ai"><el-icon><MagicStick /></el-icon>AI 推荐</el-menu-item>
+          </el-sub-menu>
           <el-sub-menu index="sub-apps">
             <template #title><el-icon><Tickets /></el-icon><span>应聘管理</span></template>
             <el-menu-item index="/company/applications"><el-icon><List /></el-icon>投递我的简历</el-menu-item>

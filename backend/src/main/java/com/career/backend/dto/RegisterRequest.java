@@ -14,6 +14,7 @@ public class RegisterRequest {
     private String school;
     private String major;
     private String department;
+    private Integer counselorId;
     // 辅导员特有（department 复用）
     // 企业特有
     private String companyName;
