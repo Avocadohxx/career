@@ -37,7 +37,7 @@
           <el-input v-model="regForm.phone" placeholder="手机号（选填）" :prefix-icon="Phone" />
         </el-form-item>
 
-        <!-- 学生特有字段 -->
+        <!-- 学生字段 -->
         <template v-if="regForm.role === 'student'">
           <el-form-item>
             <el-input v-model="regForm.school" placeholder="所在学校（选填）" :prefix-icon="School" />
@@ -58,14 +58,14 @@
           </el-form-item>
         </template>
 
-        <!-- 辅导员特有字段 -->
+        <!-- 辅导员字段 -->
         <template v-if="regForm.role === 'counselor'">
           <el-form-item>
             <el-input v-model="regForm.department" placeholder="所属院系（选填）" :prefix-icon="OfficeBuilding" />
           </el-form-item>
         </template>
 
-        <!-- 企业特有字段 -->
+        <!-- 企业字段 -->
         <template v-if="regForm.role === 'company'">
           <el-form-item prop="companyName">
             <el-input v-model="regForm.companyName" placeholder="企业名称（必填）" :prefix-icon="OfficeBuilding" />
