@@ -9,6 +9,7 @@
       <el-form v-if="role === 'student'" ref="formRef" :model="form" label-width="100px">
         <el-form-item label="姓名"><el-input v-model="form.realName" /></el-form-item>
         <el-form-item label="学号"><el-input v-model="form.userName" disabled /></el-form-item>
+        <el-form-item label="学校"><el-input v-model="form.school" /></el-form-item>
         <el-form-item label="院系"><el-input v-model="form.department" /></el-form-item>
         <el-form-item label="专业"><el-input v-model="form.major" /></el-form-item>
         <el-form-item label="联系方式"><el-input v-model="form.phone" /></el-form-item>

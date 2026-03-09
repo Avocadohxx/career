@@ -26,7 +26,7 @@
       <el-table :data="list" v-loading="loading" stripe>
         <el-table-column prop="title" label="岗位名称" min-width="130" />
         <el-table-column prop="companyId" label="企业ID" width="80" />
-        <el-table-column prop="city" label="城市" width="90" />
+        <el-table-column prop="city" label="城市" width="120" />
         <el-table-column label="薪资范围" width="120">
           <template #default="{ row }">{{ row.salaryMin }}~{{ row.salaryMax }}K</template>
         </el-table-column>

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/job")
@@ -69,6 +70,23 @@ public class JobController {
     public Result<Void> delete(@PathVariable Integer id) {
         jobService.removeById(id);
         return Result.success(null);
+    }
+
+    @GetMapping("/approved")
+    public Result<List<Job>> approved() {
+        LambdaQueryWrapper<Job> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Job::getStatus, 1);
+        wrapper.select(Job::getId, Job::getTitle, Job::getSkills, Job::getDescription,
+                Job::getCity, Job::getSalaryMin, Job::getSalaryMax, Job::getCompanyId);
+        return Result.success(jobService.list(wrapper));
+    }
+
+    @GetMapping("/approved-by-company")
+    public Result<List<Job>> approvedByCompany(@RequestParam Integer companyId) {
+        LambdaQueryWrapper<Job> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Job::getStatus, 1).eq(Job::getCompanyId, companyId);
+        wrapper.select(Job::getId, Job::getTitle, Job::getSkills, Job::getDescription);
+        return Result.success(jobService.list(wrapper));
     }
 
     @GetMapping("/count-today")

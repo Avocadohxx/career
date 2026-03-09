@@ -33,4 +33,14 @@ public class AuthController {
             return Result.error(e.getMessage());
         }
     }
+
+    @PostMapping("/reset-password")
+    public Result<Void> resetPassword(@RequestBody RegisterRequest request) {
+        try {
+            authService.resetPassword(request);
+            return Result.success(null);
+        } catch (RuntimeException e) {
+            return Result.error(e.getMessage());
+        }
+    }
 }

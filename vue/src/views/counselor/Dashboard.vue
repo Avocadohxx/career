@@ -27,6 +27,7 @@
         <span style="margin-left: 8px; font-size: 13px; color: #909399;">共 {{ total }} 人</span>
       </template>
       <el-table :data="students" v-loading="loading" stripe>
+        <el-table-column prop="userName" label="用户名" width="100" />
         <el-table-column prop="realName" label="姓名" width="100" />
         <el-table-column prop="department" label="院系" />
         <el-table-column prop="major" label="专业" />

@@ -133,6 +133,7 @@ CREATE TABLE IF NOT EXISTS `student` (
     `email`          VARCHAR(100)          DEFAULT NULL COMMENT '电子邮箱',
     `address`        VARCHAR(200)          DEFAULT NULL COMMENT '家庭地址',
     `counselor_id`   INT                   DEFAULT NULL COMMENT '外键，关联辅导员表',
+    `is_del`         TINYINT               DEFAULT 0 COMMENT '逻辑删除：0正常 1已删除',
     `create_at`      DATETIME              DEFAULT NULL COMMENT '创建时间',
     `updated_at`     DATETIME              DEFAULT NULL COMMENT '更新时间',
     PRIMARY KEY (`id`),
@@ -148,6 +149,7 @@ CREATE TABLE IF NOT EXISTS `counselor` (
     `department` VARCHAR(50)           DEFAULT NULL COMMENT '所属院系',
     `phone`      VARCHAR(20)           DEFAULT NULL COMMENT '联系电话',
     `email`      VARCHAR(100)          DEFAULT NULL COMMENT '电子邮箱',
+    `is_del`     TINYINT               DEFAULT 0 COMMENT '逻辑删除：0正常 1已删除',
     `create_at`  DATETIME              DEFAULT NULL COMMENT '创建时间',
     `updated_at` DATETIME              DEFAULT NULL COMMENT '更新时间',
     PRIMARY KEY (`id`),
@@ -167,8 +169,23 @@ CREATE TABLE IF NOT EXISTS `company` (
     `email`        VARCHAR(100)          DEFAULT NULL COMMENT '电子邮箱',
     `description`  TEXT                  DEFAULT NULL COMMENT '企业简介',
     `status`       TINYINT               DEFAULT 0 COMMENT '审核状态：0待审核 1通过 2拒绝',
+    `is_del`       TINYINT               DEFAULT 0 COMMENT '逻辑删除：0正常 1已删除',
     `create_at`    DATETIME              DEFAULT NULL COMMENT '创建时间',
     `updated_at`   DATETIME              DEFAULT NULL COMMENT '更新时间',
     PRIMARY KEY (`id`),
     UNIQUE KEY `uk_user_name` (`user_name`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '企业信息表';
+
+-- 管理员信息表
+CREATE TABLE IF NOT EXISTS `admin` (
+    `id`         INT          NOT NULL AUTO_INCREMENT COMMENT '主键，管理员编号',
+    `user_name`  VARCHAR(50)  NOT NULL COMMENT '登录账号',
+    `password`   VARCHAR(100) NOT NULL COMMENT '登录密码（加密存储）',
+    `real_name`  VARCHAR(50)           DEFAULT NULL COMMENT '真实姓名',
+    `email`      VARCHAR(100)          DEFAULT NULL COMMENT '电子邮箱',
+    `is_del`     TINYINT               DEFAULT 0 COMMENT '逻辑删除：0正常 1已删除',
+    `create_at`  DATETIME              DEFAULT NULL COMMENT '创建时间',
+    `updated_at` DATETIME              DEFAULT NULL COMMENT '更新时间',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `uk_user_name` (`user_name`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '管理员信息表';

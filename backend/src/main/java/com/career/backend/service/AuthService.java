@@ -7,4 +7,5 @@ import com.career.backend.dto.RegisterRequest;
 public interface AuthService {
     LoginResponse login(LoginRequest request);
     void register(RegisterRequest request);
+    void resetPassword(RegisterRequest request);
 }

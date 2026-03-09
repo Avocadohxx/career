@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1">
   <diagram id="er-v3" name="就业指导系统ER图">
-    <mxGraphModel dx="3178" dy="1749" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3200" pageHeight="2200" math="0" shadow="0">
+    <mxGraphModel dx="1107" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3200" pageHeight="2200" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -420,6 +420,18 @@
             <mxPoint x="800" y="1234" as="sourcePoint" />
             <mxPoint x="940" y="1442" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="6g3TmsyRBEM9Dqs87LaK-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="is_del" vertex="1">
+          <mxGeometry height="26" width="300" x="920" y="1260" as="geometry" />
+        </mxCell>
+        <mxCell id="6g3TmsyRBEM9Dqs87LaK-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="is_del" vertex="1">
+          <mxGeometry height="26" width="300" x="500" y="1868" as="geometry" />
+        </mxCell>
+        <mxCell id="6g3TmsyRBEM9Dqs87LaK-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="is_del" vertex="1">
+          <mxGeometry height="26" width="300" x="1060" y="672" as="geometry" />
+        </mxCell>
+        <mxCell id="6g3TmsyRBEM9Dqs87LaK-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="is_del" vertex="1">
+          <mxGeometry height="26" width="280" x="1460" y="422" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

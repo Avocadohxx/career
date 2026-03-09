@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { ElMessage } from 'element-plus'
 import Layout from '../views/Layout.vue'
 
 const routes = [
   { path: '/login', name: 'login', component: () => import('../views/Login.vue') },
   { path: '/register', name: 'register', component: () => import('../views/Register.vue') },
+  { path: '/forgot-password', name: 'forgotPassword', component: () => import('../views/ForgotPassword.vue') },
 
   // 管理员
   {
@@ -42,7 +44,9 @@ const routes = [
     children: [
       { path: 'home', name: 'studentHome', component: () => import('../views/student/Home.vue') },
       { path: 'resume', name: 'studentResume', component: () => import('../views/student/Resume.vue') },
-      { path: 'recommend', name: 'studentRecommend', component: () => import('../views/student/JobRecommend.vue') },
+      { path: 'recommend', redirect: '/student/recommend/smart' },
+      { path: 'recommend/smart', name: 'studentRecommendSmart', component: () => import('../views/student/JobRecommend.vue') },
+      { path: 'recommend/ai', name: 'studentRecommendAi', component: () => import('../views/student/AiJobRecommend.vue') },
       { path: 'search', name: 'studentSearch', component: () => import('../views/student/JobSearch.vue') },
       { path: 'applications', name: 'studentApplications', component: () => import('../views/student/Applications.vue') },
       { path: 'guidance-posts', name: 'studentPosts', component: () => import('../views/student/GuidancePosts.vue') },
@@ -59,7 +63,9 @@ const routes = [
     children: [
       { path: 'dashboard', name: 'companyDashboard', component: () => import('../views/company/Dashboard.vue') },
       { path: 'jobs', name: 'companyJobs', component: () => import('../views/company/JobManage.vue') },
-      { path: 'talent', name: 'companyTalent', component: () => import('../views/company/TalentRecommend.vue') },
+      { path: 'talent', redirect: '/company/talent/smart' },
+      { path: 'talent/smart', name: 'companyTalentSmart', component: () => import('../views/company/TalentRecommend.vue') },
+      { path: 'talent/ai', name: 'companyTalentAi', component: () => import('../views/company/AiTalentRecommend.vue') },
       { path: 'applications', name: 'companyApplications', component: () => import('../views/company/Applications.vue') },
       { path: 'profile', name: 'companyProfile', component: () => import('../views/common/Profile.vue') },
     ]
@@ -85,11 +91,20 @@ const router = createRouter({
 
 router.beforeEach((to, _from, next) => {
   const token = localStorage.getItem('token')
-  const publicPaths = ['/login', '/register']
+  const publicPaths = ['/login', '/register', '/forgot-password']
+  console.log("status",localStorage.getItem('status'));
   if (!token && !publicPaths.includes(to.path)) {
     next('/login')
   } else if (token && publicPaths.includes(to.path)) {
     next(roleHome())
+  } else if (
+    localStorage.getItem('role') === 'company' &&
+    parseInt(localStorage.getItem('status') || '1') !== 1 &&
+    to.path.startsWith('/company/') &&
+    to.path !== '/company/dashboard'
+  ) {
+    ElMessage.warning('您的企业账号正在审核中，暂时无法使用该功能，请耐心等待管理员审核通过。')
+    next(false)
   } else {
     next()
   }

@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1">
   <diagram id="er-v3" name="就业指导系统ER图">
-    <mxGraphModel dx="3443" dy="1895" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3200" pageHeight="2200" math="0" shadow="0">
+    <mxGraphModel dx="949" dy="857" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3200" pageHeight="2200" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -46,17 +46,17 @@
         <mxCell id="r_f2a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;fontStyle=1;align=left;spacingLeft=24;" value="student_id (FK)" vertex="1">
           <mxGeometry height="26" width="300" x="1410" y="908" as="geometry" />
         </mxCell>
-        <mxCell id="r_f3a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="edu_background" vertex="1">
+        <mxCell id="r_f3a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="education" vertex="1">
           <mxGeometry height="26" width="300" x="1410" y="934" as="geometry" />
         </mxCell>
-        <mxCell id="r_f4a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="work_exp" vertex="1">
+        <mxCell id="r_f4a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="experience" vertex="1">
           <mxGeometry height="26" width="300" x="1410" y="960" as="geometry" />
         </mxCell>
-        <mxCell id="r_f5a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="skill_tags" vertex="1">
+        <mxCell id="r_f5a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="skills" vertex="1">
           <mxGeometry height="26" width="300" x="1410" y="986" as="geometry" />
         </mxCell>
         <mxCell id="r_f6a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="status" vertex="1">
-          <mxGeometry height="26" width="300" x="1410" y="1012" as="geometry" />
+          <mxGeometry height="26" width="300" x="1410" y="1036" as="geometry" />
         </mxCell>
         <mxCell id="aph" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#006EAF;strokeColor=#006EAF;fontColor=#ffffff;fontSize=20;fontStyle=1;align=left;spacingLeft=24;" value="application（应聘记录）" vertex="1">
           <mxGeometry height="32" width="300" x="1360" y="1225" as="geometry" />
@@ -118,17 +118,17 @@
         <mxCell id="j_f3a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="job_name" vertex="1">
           <mxGeometry height="26" width="300" x="920" y="1404" as="geometry" />
         </mxCell>
-        <mxCell id="j_f4a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="salary_range" vertex="1">
+        <mxCell id="j_f4a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="city" vertex="1">
           <mxGeometry height="26" width="300" x="920" y="1430" as="geometry" />
         </mxCell>
-        <mxCell id="j_f5a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="city" vertex="1">
+        <mxCell id="j_f5a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="salary_max" vertex="1">
           <mxGeometry height="26" width="300" x="920" y="1456" as="geometry" />
         </mxCell>
         <mxCell id="j_f6a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="requirement" vertex="1">
-          <mxGeometry height="26" width="300" x="920" y="1482" as="geometry" />
+          <mxGeometry height="26" width="300" x="920" y="1530" as="geometry" />
         </mxCell>
         <mxCell id="j_f7a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="status" vertex="1">
-          <mxGeometry height="26" width="300" x="920" y="1508" as="geometry" />
+          <mxGeometry height="26" width="300" x="920" y="1556" as="geometry" />
         </mxCell>
         <mxCell id="th" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#006EAF;strokeColor=#006EAF;fontColor=#ffffff;fontSize=20;fontStyle=1;align=left;spacingLeft=24;" value="counselor（辅导员）" vertex="1">
           <mxGeometry height="32" width="300" x="1060" y="430" as="geometry" />
@@ -329,10 +329,10 @@
           <mxGeometry height="26" width="300" x="920" y="1234" as="geometry" />
         </mxCell>
         <mxCell id="wub1D5oTGUkVMawzoQDx-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="create_at" vertex="1">
-          <mxGeometry height="26" width="300" x="1410" y="1038" as="geometry" />
+          <mxGeometry height="26" width="300" x="1410" y="1062" as="geometry" />
         </mxCell>
         <mxCell id="wub1D5oTGUkVMawzoQDx-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="updated_at" vertex="1">
-          <mxGeometry height="26" width="300" x="1410" y="1064" as="geometry" />
+          <mxGeometry height="26" width="300" x="1410" y="1088" as="geometry" />
         </mxCell>
         <mxCell id="wub1D5oTGUkVMawzoQDx-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="create_at" vertex="1">
           <mxGeometry height="26" width="300" x="510" y="976" as="geometry" />
@@ -347,10 +347,10 @@
           <mxGeometry height="26" width="300" x="500" y="1842" as="geometry" />
         </mxCell>
         <mxCell id="wub1D5oTGUkVMawzoQDx-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="create_at" vertex="1">
-          <mxGeometry height="26" width="300" x="920" y="1534" as="geometry" />
+          <mxGeometry height="26" width="300" x="920" y="1582" as="geometry" />
         </mxCell>
         <mxCell id="wub1D5oTGUkVMawzoQDx-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="updated_at" vertex="1">
-          <mxGeometry height="26" width="300" x="920" y="1560" as="geometry" />
+          <mxGeometry height="26" width="300" x="920" y="1608" as="geometry" />
         </mxCell>
         <mxCell id="wub1D5oTGUkVMawzoQDx-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="create_at" vertex="1">
           <mxGeometry height="26" width="280" x="1460" y="370" as="geometry" />
@@ -420,6 +420,27 @@
             <mxPoint x="800" y="1234" as="sourcePoint" />
             <mxPoint x="940" y="1442" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="iaTKZuahQXCXCB89Q53V-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="is_del" vertex="1">
+          <mxGeometry height="26" width="280" x="1460" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="iaTKZuahQXCXCB89Q53V-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="is_del" vertex="1">
+          <mxGeometry height="26" width="300" x="1060" y="672" as="geometry" />
+        </mxCell>
+        <mxCell id="iaTKZuahQXCXCB89Q53V-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="is_del" vertex="1">
+          <mxGeometry height="26" width="300" x="920" y="1257" as="geometry" />
+        </mxCell>
+        <mxCell id="iaTKZuahQXCXCB89Q53V-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="is_del" vertex="1">
+          <mxGeometry height="26" width="300" x="500" y="1868" as="geometry" />
+        </mxCell>
+        <mxCell id="iaTKZuahQXCXCB89Q53V-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="salary_min" vertex="1">
+          <mxGeometry height="26" width="300" x="920" y="1482" as="geometry" />
+        </mxCell>
+        <mxCell id="iaTKZuahQXCXCB89Q53V-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="skills" vertex="1">
+          <mxGeometry height="26" width="300" x="920" y="1508" as="geometry" />
+        </mxCell>
+        <mxCell id="iaTKZuahQXCXCB89Q53V-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;align=left;spacingLeft=24;" value="self_eval" vertex="1">
+          <mxGeometry height="26" width="300" x="1410" y="1010" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

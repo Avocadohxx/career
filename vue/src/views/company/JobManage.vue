@@ -165,7 +165,7 @@ async function handleDelete(id) {
   } catch (e) { if (e) ElMessage.error(e.message) }
 }
 
-function statusType(s) { return [null, 'success', 'danger'][s] ?? 'warning' }
-function statusText(s) { return ['待审核', '已通过', '已拒绝'][s] ?? '未知' }
+function statusType(s) { return ['warning', 'success', 'danger'][s] ?? 'info' }
+function statusText(s) { return ['待审核', '已通过', '已拒绝', '已下线'][s] ?? '未知' }
 function fmt(t) { return t ? t.replace('T', ' ').slice(0, 16) : '' }
 </script>

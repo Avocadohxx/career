@@ -50,7 +50,9 @@
     <el-card shadow="never" style="border-radius: 8px;">
       <template #header><span style="font-weight:600;">学生面邀 &amp; 入职情况</span></template>
       <el-table :data="studentList" stripe size="small" style="width: 100%;">
+        <!-- <el-table-column prop="userName" label="用户名" width="100" /> -->
         <el-table-column prop="realName" label="姓名" width="100" />
+        <!-- <el-table-column prop="jobIntention" label="求职意向" width="200" /> -->
         <el-table-column label="投递" width="90" align="center">
           <template #default="{ row }">
             <el-popover trigger="click" placement="top" width="160">
